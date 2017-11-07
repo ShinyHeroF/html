@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><!-- Get TinyMCE Cloud -->
+  <script src="./js/tinymce/tinymce.min.js"></script>
+  <script>tinymce.init({
+      branding: false,
+      selector:'textarea',
+      theme: 'modern',
+      preview_styles: false,
+      mobile: {
+        preview_styles: false,
+        theme: 'mobile',
+        plugins: [ 'autosave', 'lists', 'autolink' ],
+        toolbar: [ 'undo', 'bold', 'italic', 'styleselect', 'link' ]
+      }
+    });</script>
+</head>
+<body>
+  <textarea>Now go get a free trial of our Premium Plugins!</textarea>
+</body>
+</html>
