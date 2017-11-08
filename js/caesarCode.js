@@ -1,5 +1,3 @@
-import {hello} from './xxx.js';
-
 function getDistance () {
   return document.getElementById("distance").value;
 }
