@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<title>图片由模糊到清晰的过度效果</title>
+<style>
+  * {margin:0;padding:0}
+  img {width:1000px;height:627px;margin:10px auto;display:block}
+</style>
+</head>
+<body>
+<img src="./resource/img/Image-Transition-Show-small.jpg" alt="小图" originaldata="./resource/img/Image-Transition-Show-big.jpg"/>
+<script>
+  var small=document.getElementsByTagName("img")[0];
+  //当图片加载成功之后
+  small.onload=function(){
+    setTimeout(function(){
+      small.src=small.getAttribute("originaldata")+"?"+Math.random();//Math.random()用来保证浏览器不换村当前图片，实际项目中应该删除
+    },3000)
+  }
+</script>
+</body>
+</html>
