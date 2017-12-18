@@ -8,10 +8,11 @@
 </head>
 <body>
   <textarea>Now go get a free trial of our Premium Plugins!</textarea>
+  <button class="my-custom-button">Button</button>
   <script>
     tinymce.init({
-      branding: false,
       selector:'textarea',
+      custom_ui_selector: '.my-custom-button',
       height: 400,
       theme: 'modern',
       menubar: false,
@@ -81,7 +82,8 @@
       //   theme: 'mobile',
       //   plugins: [ 'autosave', 'lists', 'autolink' ],
       //   toolbar: [ 'undo', 'bold', 'italic', 'styleselect', 'link' ]
-      // }
+      // },
+      resize: false
     });
   </script>
   <script>
