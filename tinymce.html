@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Get TinyMCE Cloud -->
+  <script src="./js/tinymce/tinymce.min.js"></script>
+  <style>
+  </style>
+</head>
+<body>
+  <textarea>Now go get a free trial of our Premium Plugins!</textarea>
+  <button class="my-custom-button">Button</button>
+  <script>
+    tinymce.init({
+      selector:'textarea',
+      custom_ui_selector: '.my-custom-button',
+      height: 400,
+      theme: 'modern',
+      menubar: false,
+      preview_styles: false,
+      toolbar: 'undo redo | forecolor backcolor bold italic | hr | link image media',
+      statusbar: false,
+      relative_urls: false,
+      // media_live_embeds: true,
+      plugins: ['hr', 'textcolor', 'autolink', 'image', 'media'],
+      file_picker_types: 'image media',
+      file_picker_callback: function(cb, value, meta) {
+        var input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', '*');
+
+        // Note: In modern browsers input[type="file"] is functional without
+        // even adding it to the DOM, but that might not be the case in some older
+        // or quirky browsers like IE, so you might want to add it to the DOM
+        // just in case, and visually hide it. And do not forget do remove it
+        // once you do not need it anymore.
+
+        input.onchange = function() {
+          var file = this.files[0];
+          if(file.type.match(/image/)) {
+            console.log('image');
+            var reader = new FileReader();
+            reader.onload = function () {
+              // Note: Now we need to register the blob in TinyMCEs image blob
+              // registry. In the next release this part hopefully won't be
+              // necessary, as we are looking to handle it internally.
+              var id = 'blobid' + (new Date()).getTime();
+              var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+              var base64 = reader.result.split(',')[1];
+              var blobInfo = blobCache.create(id, file, base64);
+              blobCache.add(blobInfo);
+
+              // call the callback and populate the Title field with the file name
+              cb(blobInfo.blobUri(), { title: file.name });
+            };
+            reader.readAsDataURL(file);
+          }
+          if(file.type.match(/video/)) {
+            // Do sth.
+            console.log('video');
+            var resourceTokenUrl = '';
+            var qiniuUrl = 'http://up.qiniu.com';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', resourceTokenUrl);
+            xhr.onload = (rep) => {
+              var qiniuXhr = new XMLHttpRequest();
+
+              var formData = new FormData();
+              formData.append('file', file);
+              formData.append('token', rep.body.data.token);
+              formData.append('key', `${rep.body.data.key}.${ext}`);
+            };
+            xhr.send();
+            cb('asdf');
+          }
+        };
+
+        input.click();
+      },
+      // mobile: {
+      //   preview_styles: false,
+      //   theme: 'mobile',
+      //   plugins: [ 'autosave', 'lists', 'autolink' ],
+      //   toolbar: [ 'undo', 'bold', 'italic', 'styleselect', 'link' ]
+      // },
+      resize: false
+    });
+  </script>
+  <script>
+    window.addEventListener('pageshow', function (e) {
+      console.log('show!!');
+    }, false);
+    window.addEventListener('resize', function (e) {
+      console.log('resize!!');
+    }, false);
+  </script>
+</body>
+</html>
