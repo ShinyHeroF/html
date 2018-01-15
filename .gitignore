@@ -1,0 +1,5 @@
+.DS_Store
+
+#该文件夹保存了用ueditor时上传的图片，根据具体配置回生成不同的文件夹
+ueditor/
+!js/ueditor/
