@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal</title>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            text-align: center;
+        }
+        .mask {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            opacity: .6;
+        }
+
+        .show-modal-button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .show-modal-button-container__button {
+            width: 100px;
+            height: 50px;
+            border: 1px solid green;
+            cursor: pointer;
+            line-height: 50px;
+        }
+
+        .modal {
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            display: none;
+            margin-top: -90px;
+            margin-left: -150px;
+            width: 300px;
+            height: 180px;
+            background-color: white;
+            border: 1px solid red;
+        }
+
+        .modal__header {
+
+        }
+
+        .modal__header__title {
+
+        }
+
+        .modal__header__close-button {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 16px;
+            height: 16px;
+            border: 1px solid black;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .modal__confirm-button {
+            margin: 50px auto;
+            width: 50px;
+            height: 25px;
+            border: 1px solid gray;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mask"></div>
+    <div class="show-modal-button-container">
+        <div class="show-modal-button-container__button">显示弹窗</div>
+    </div>
+    <div class="modal">
+        <div class="modal__header">
+            <text class="modal__header__title">我是一个弹窗</text>
+            <text class="modal__header__close-button">X</text>
+        </div>
+        <div class="modal__confirm-button">确定</div>
+    </div>
+</body>
+<script type="text/javascript">
+    var showModalButton = document.querySelector('.show-modal-button-container__button');
+    showModalButton.addEventListener('click', function () {
+        showModal();
+    });
+
+    var modalCloseButton = document.querySelector('.modal__header__close-button');
+    modalCloseButton.addEventListener('click', function () {
+        hideModal();
+    });
+
+    var modalConfirmButton = document.querySelector('.modal__confirm-button');
+    modalConfirmButton.addEventListener('click', function () {
+        hideModal();
+    });
+
+    var mask = document.querySelector('.mask');
+    mask.addEventListener('click', function () {
+        hideModal();
+    });
+
+    function showModal () {
+        document.querySelector('.mask').style.display = 'block';
+        document.querySelector('.modal').style.display = 'block';
+    }
+
+    function hideModal () {
+        document.querySelector('.mask').style.display = 'none';
+        document.querySelector('.modal').style.display = 'none';
+    }
+</script>
+</html>
