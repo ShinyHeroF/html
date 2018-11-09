@@ -1,0 +1,322 @@
+???commodityCd
+
+user group
+{
+    userId: 305
+    groupId: 2
+    groupName: "Gold"
+    groupValue: 2
+    campaignJoinCount: 0
+    comeShopPoint: 0
+    createDate: null
+    createUser: null
+    downgradeConditon: 30
+    nowComeShop: 13
+    restPoint: 5412
+    totalComeShop: 87
+
+    upgradeDate: 1534348800000
+    upgradeDays: 180
+    upgradeEndDate: 1549900800000
+    upgradePrice: 2000
+}
+
+user info
+{
+    delFlg: 0
+
+    userId: 305
+    nickName: "Limi"
+    userPhoto: ""
+    mobile: "01722222222"
+    userEmail: null
+    // address: null
+    // province: null
+    // district: null
+    ageLevel: null
+    incomeLevel: null
+    job: null
+    gender: 1
+    birthday: 1532448000000
+    marriageStatus: null
+
+    facebookId: null
+    googleId: null
+
+    barcode: "1900000003058"
+    token: "305_68BB6EF12CF34B5F8E0772CB915693E0"
+    card: null
+    // cardList: null
+
+    lastLoginDate: 1540989764000
+    createDate: 1532501687000
+    updateDate: 1540989764000
+
+    dayCouponUpperLimit: 10
+
+    groupName: null
+
+    protocolAgreeFlg: 1
+
+    pushChannelId: null
+    pushFlg: 0
+    pushUserId: null
+    race: 0
+    restPoint: null
+
+    userCardId: null
+    userCount: null
+    userCouponInfoUrl: null
+
+    userInfoOverFlg: 0
+    userOrigin: null
+
+    // virtualBalance: null
+    // virtualCard: null
+    // virtualCardBalance: null
+    // virtualPinCode: null
+    // webSocketId: null
+    // alipayCardRegionBlackCode: null
+    // weixinCardRegionBlackCode: null
+}
+
+h5 card
+{
+    balance: 107.1
+    bindDate: 1522220650000
+    isBlocked: false
+    isDefault: true
+    isVirtual: false
+    name: "1335677"
+    pictureUrl: "https://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/20180121115629_78BF4584FB06418EA77949B5227161F0.jpeg"
+    status: 0
+    unbindDate: 0
+    updateDate: 1541038318115
+    userCardId: "807019900002231001"
+}
+
+user coupon
+{
+    userCouponId:118525405
+    couponId:5830
+    couponName:"火影展门票38元 提货券"
+    imagePathList:"https://lawson-event.oss-cn-hangzhou.aliyuncs.com/ecshop/sh/355551_355615_355631.jpg"
+    lockFlg:0
+    originalPrice:38
+    discountPrice:0
+    shopList:["016022"]
+    shopUseFlg:1
+    type:1
+    useCondition:0
+    useDateFrom:1540828800000
+    useDateTo:1540915199000
+}
+
+coupon
+{
+    activationDate: null
+    address: null
+    barcode: null
+    bindingDate: null
+    bindingDateStr: "20181105104736"
+    commodityBarcode: null
+    commodityBarcodeList: null
+    couponExplain: "Free one Maru Hot Latte* (Regular) for completing Maru Coffee mySTAMPS Campaign. *Not redeemable at Maru Kafe, myNEWS Plaza Sentral Outlet."
+    couponId: 367
+    couponName: "Free Maru Hot Lattee"
+    couponType: 0
+    createDate: null
+    delFlg: 0
+    discountPrice: 3.69
+    displayDateFrom: 1538611920000
+    displayDateFromStr: "20181004081200"
+    displayDateTo: 1553961659000
+    displayDateToStr: "20190331000059"
+    dynamicPeriodFlg: null
+    dynamicUseDateFrom: null
+    dynamicUseDateTo: null
+    executeBegin: null
+    executeCycle: 0
+    executeEnd: null
+    id: 2226
+    imagePath: null
+    imagePathDetail: "https://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/20181026170249_24C47BB9F4A847D08394F940A3C74D5F.jpeg"
+    imagePathList: "https://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/20181026170249_24C47BB9F4A847D08394F940A3C74D5F.jpeg"
+    lockFlg: 0
+    nickName: null
+    originalPrice: 3.7
+    posNo: null
+    provinceDistrict: null
+    publishFlg: 0
+    regionBlockCode: "Malaysia"
+    sellKbn: null
+    sendType: 0
+    serialNumber: null
+    shopCount: null
+    shopName: null
+    shopUseFlg: 1
+    shopid: null
+    tucdpShopId: null
+    type: 3
+    updateDate: 1541386056000
+    updateDateStr: "20181104214330"
+    useCondition: 0
+    useDate: null
+    useDateFrom: 1540483200000
+    useDateFromStr: "20181026000000"
+    useDateStr: ""
+    useDateTo: 1546185659000
+    useDateToStr: "20181231000059"
+    useShopId: ""
+    useUpdateDateTimeStr: "20181105104736"
+    userId: null
+}
+
+shop
+{
+    address: "RANDOM,"
+    businessStatus: 0
+    businessTime: "Monday - Thursday : 09:00 - 22:30, Friday - Saturday : 09:00 - 23:00, Sunday : 09:00 - 22:30"
+    country: "MALAYSIA"
+    delFlg: 0
+    districtCode: "52000"
+    endDate: null
+    latitude: 3.2
+    longitude: 101.6
+    notified: true
+    openDate: 1483200000000
+    provinceDistrict: "KUALA LUMPUR,"
+    publishFlg: 0
+    regionBlockCode: "Malaysia"
+    shopId: "639"
+    shopName: "TRAINING CENTRE"
+    state: null
+    updateDate: 1536123600000
+}
+
+event
+{
+    body: null
+    createDate: 1525051459000
+    createUser: "1"
+    effectDateFrom: 1525017600000
+    effectDateTo: 1903795199000
+    id: 40
+    imagePath: "https://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/20180430092417_456C4268B0984F5C9960F61C7F97E396.jpeg"
+    imagePathDetail: null
+    notified: true
+    publishDateFrom: 1525017600000
+    publishDateTo: 1903795199000
+    publishFlg: 0
+    redirectUrl: null
+    regionBlockCode: "Malaysia"
+    title: "myNEWS Loyalty Card + App is now available at ALL myNEWS stores nationwide!"
+    updateDate: 1525052948000
+    updateUser: "1"
+}
+
+newArrival
+{
+    createDate: 1535098908000
+    description: "<p><span style="color: rgb(68, 68, 68);">灰色：经济健康</span></p><p><br></p><p><br></p><p><br></p><p>黑色：测试下黑色字体</p>"
+    id: 36
+    picture: "https://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/20180824162146_E2E86E86E4B24043B4AB8151E6F3E1E7.jpeg"
+    publishDateFrom: 1535040000000
+    publishDateFromStr: "20180824000000"
+    publishDateTo: 1541001599000
+    publishDateToStr: "20181031235959"
+    publishFlg: 0
+    title: "111"
+    updateDate: 1537950007000
+}
+
+✅ campaign
+{
+    campaignDateFrom: 1540915200000
+    campaignDateTo: 1541087999000
+    campaignId: 70
+    campaignName: "testing5"
+    campaignType: 0
+    description: null
+    giftNums: 1
+    giftType: null
+    iconNotOver: null
+    iconOver: null
+    imagePathDetail: "https://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/20181031180521_3F7E74B2A3E742368002C0741B30AA28.jpeg"
+    openBeginDt: 1540915200000
+    openEndDt: 1541087999000
+    publishFlg: 0
+    rewardType: 1
+    stampNeeded: 3
+    status: 4
+    termsCondition: null
+    notified: true
+    campaignGiveFlg: 0
+    totalCampaignNum: null
+    totalCampaignTimes: null
+    totalExchangedQty: null
+    createDate: 1540980323000
+    updateDate: 1540980323000
+    userStampList: []
+    totalPersonCampaign: null
+    totalStampNum: null
+}
+
+✅ commodity  ->  special
+{
+    commodityBarcode: "21155"
+    commodityCd: "MYNEWSMSOFTCHOC"
+    commodityName: "MYNEWS-MAUR KAFT"
+    commodityPointRate: 50  -->  bonus
+    sellPrice: 2.7
+    imgUrl: "https://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/Malaysia/commodity/MYNEWSMSOFTCHOC.jpg"
+    pointEndDate: 1541951999000
+    pointStartDate: 1540828800000
+    sellDateBegin: 1262275200000
+    createDate: 1535004300000
+    updateDate: 1540882760000
+    // supplierCode: "21155"
+}
+
+🥁 commodityPoint  ->  exchange
+{
+    // commodityCd: "9999999999"
+    // company_id
+    // regionBlockCode
+    commodityName: "RM1 off for 100 points"
+    commodityPointId: 106
+    couponFlg: 2
+    couponId: 375
+    couponName: "RM1 off for 100 points"
+    exchangeFlg: 0
+    exchangePoint: 100
+    exchangePrice: 1
+    exchangeTotal: 3
+    imagePathDetail: null
+    discountExplain: "Use 100 myPOINTS to exchange for RM1 Cash Coupon."
+    redemptionInstructions: null
+    termsCondition: null
+    exchangeOpenDate: 1540886580000
+    exchangeCloseDate: 1541865599000
+    createDate: 1540886658000
+    updateDate: 1540952643000
+}
+
+✅ disountCommodity  -->  discount
+{
+    ???commodityCd: "SUPERCHIC"
+    commodityName: "SUPER NOODLE CUP CHICKEN 74G"
+    companyId: 1
+    ???delFlg: 0
+    discountExplain: null
+    ???discountId: 57
+    discountPrice: 20
+    discountType: 0
+    imagePathDetail: "https://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/20180428193653_68E9E938228947C481215168F6379465.jpeg"
+    sellPrice: "2.8000"
+    termsCondition: "Retail price: RM2.60↵2. dddfddf↵3.dfdfdf"// terms && conditions
+    publishDateFrom: 1524915180000
+    publishDateTo: 1556467259000
+    createDate: 1524915416000
+    updateDate: 1524915416000
+}

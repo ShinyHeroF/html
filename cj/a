@@ -1,0 +1,21 @@
+https://devmynews.api.yorentick.cn/app/v1/init/
+    pushSetting: {
+
+    }
+    version: {
+        appAndroidMinVersion: "1.0.0"
+        appAndroidUpdateInfo: "1. Optimization on the compatibility on different phone model. ↵2. Minor UI issue correction"
+        appAndroidUpdateurl: "http://mynews-www-dev.oss-cn-hangzhou.aliyuncs.com/app/mynews_v1.0.2_dev.apk"
+        appAndroidVersion: "1.0.0"
+        appIosMinVersion: "1.0.0"
+        appIosUpdateInfo: "1. Optimization on the compatibility on different phone model. ↵2. Minor UI issue correction"
+        appIosVersion: "1.0.0"
+        masterVersion: null
+        settingVersion: null
+        shopVersion: null
+        updateDate: null
+        updateDateStr: "20170725140800"
+    }
+
+https://devmynews.api.yorentick.cn/app/v1/user/group
+https://devmynews.api.yorentick.cn/app/v1/card/virtualGetBalance
