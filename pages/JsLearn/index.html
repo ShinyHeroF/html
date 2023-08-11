@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>学习&&回顾js知识</title>
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+</head>
+
+<body>
+  <div>学习&&回顾js知识</div>
+</body>
+<script>
+  function whileLoop() {
+    const maxTimes = 5;
+    let execTimes = 0;
+    while (true) {
+      execTimes++;
+      console.log('execTimes ==>', execTimes);
+      if (execTimes >= maxTimes) {
+        throw new Error('over max'); // true
+        // break; // true
+        // return; // true;
+      }
+    }
+  }
+  // whileLoop()
+  
+  function argumentsTest(...args) {
+    // arguments 伪数组
+    console.log('arguments ==>', arguments);
+    // args 数组
+    console.log('args ==>', args);
+  }
+  // argumentsTest({a:1,b:2});
+
+  function getName(person) {
+    return person.name;
+  }
+  function upperCase(string) {
+    return string.toUpperCase();
+  }
+  function getSubString(string){ 
+    return string.substring(0, 2);
+  }
+  function reverseString(string){ 
+    return string.split("").reverse().join("");
+  }
+  function compose (...fns) {
+    return function(x) {
+      return fns.reduce(function(acc, cur) {
+        return cur(acc);
+      }, x);
+    }
+  }
+  // same as compose
+  function pipe(...fns) {
+    return function(x) {
+      return fns.reduce(function(acc, cur) {
+        return cur(acc);
+      }, x);
+    }
+  }
+  const getNameInUpperCase = compose(getName, upperCase);
+  // console.log('getNameInUpperCase ==>', getNameInUpperCase({ name: 'Tom' }));
+  const result = pipe(
+    getNameInUpperCase,
+    getSubString,
+    reverseString
+  )({ name: "jack ma" });
+  console.log('pipe result ==>', result);
+</script>
+
+</html>
