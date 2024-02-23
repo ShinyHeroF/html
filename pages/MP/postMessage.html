@@ -9,6 +9,8 @@
 </body>
 <script type="text/javascript">
     function postMessage() {
+        console.log('wx ==>', wx);
+        alert('asdf')
         wx.miniProgram.postMessage({ data: 'foo' });
     }
 </script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>File Download Demo</title>
+  </head>
+  <style>
+    button {
+      font-size: 4rem;
+    }
+  </style>
+  <body>
+    <button onclick="downloadFile()">点我下载文件</button>
+  </body>
+  <script>
+    async function downloadFile() {
+      try {
+        const url = 'https://h-osp.cpiccdn.com/hl22enbappuvw-req220720074/tthp/document-download/公共保额使用同意书.pdf';
+        const response = await fetch(url);
+        const responseBlob = await response.blob();
+        const blob = new Blob([responseBlob], {
+          type: "application/octet-stream;charset=UTF-8",
+        });
+        // 创建一个表示Blob对象数据的URL
+        const blobUrl = URL.createObjectURL(blob);
+
+        // 创建一个隐藏的<a>标签，设置其href属性为URL，download属性为文件名
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = url.split('/').pop() ?? '';
+        link.style.display = 'none';
+
+        // 将<a>标签添加到页面中，模拟点击事件，然后移除<a>标签
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // 释放URL对象
+        URL.revokeObjectURL(url);
+      } catch (error) {
+        alert('error')
+      }
+    }
+  </script>
+</html>
