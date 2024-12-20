@@ -52,25 +52,25 @@
       const watermarkContainer = document.querySelector("body");
       watermarkLayer = addWatermark(watermarkContainer);
 
-      // const ob = new MutationObserver((mutations )=>{
-      // if (mutations.length === 0) return;
-      //   mutations.forEach((mutation) => {
-      //     if (mutation.type === "childList") {
-      //       // 从删除元素中查找是否包含用于展示水印的元素
-      //       Array.from(mutation.removedNodes).filter((item) => item === watermarkLayer).forEach((item) => {
-      //         console.log("水印被移除了，重新加回去");
-      //         // 如果包含水印元素，则将水印元素重新加回去，并更新 watermarkLayer 方便下次判断
-      //         watermarkLayer = addWatermark(watermarkContainer);
-      //       });
-      //     }
-      //   });
-      // });
-      // ob.observe(watermarkContainer,{
-      //   childList: true,
-      //   subtree: true,
-      //   attributes: true,
-      // });
-      // addWatermark(watermarkContainer);
+      const ob = new MutationObserver((mutations )=>{
+      if (mutations.length === 0) return;
+        mutations.forEach((mutation) => {
+          if (mutation.type === "childList") {
+            // 从删除元素中查找是否包含用于展示水印的元素
+            Array.from(mutation.removedNodes).filter((item) => item === watermarkLayer).forEach((item) => {
+              console.log("水印被移除了，重新加回去");
+              // 如果包含水印元素，则将水印元素重新加回去，并更新 watermarkLayer 方便下次判断
+              watermarkLayer = addWatermark(watermarkContainer);
+            });
+          }
+        });
+      });
+      ob.observe(watermarkContainer,{
+        childList: true,
+        subtree: true,
+        attributes: true,
+      });
+      addWatermark(watermarkContainer);
     </script>
   </body>
 </html>
