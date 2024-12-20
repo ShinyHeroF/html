@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
+  <script src="./waterMark.js"></script>
 </head>
 <body>
   <fieldset>
   <legend>原始截图</legend>
-  <img width="1800" id="source" src="../resource/img/test.png" alt="原始截图" />
+  <img width="1800" id="source" src="../../resource/img/watermark-test.png" alt="原始截图" />
 </fieldset>
 <fieldset>
   <legend>解码暗水印截图</legend>
@@ -16,42 +17,7 @@
 </fieldset>
 
 <script>
-const decodeWatermark = (source, result) => {
-  const canvas = document.createElement("canvas" );
-  const context = canvas.getContext("2d");
-  const image = new Image( );
-  image.crossOrigin = "anonymous";
-  image.src = source.src;
-  image.onload = () =>{
-    canvas.width = image.width;
-    canvas.height = image.height;
-    context.drawImage(image,0,0);
-    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
-    const colorKey = 1;
-    const flag = true;
-    for (let i = 0; i< data.length; i++) {
-      // 找到像素点的颜色通道值，由下标i%4 的值确定:0 -> R,1 -> G, 2 -> B, 3 -> A
-      if (i % 4 == colorKey) {
-        if (data[i] % 2 == 0) {
-          // 如果色值为偶数
-          data[i] = flag ? 255 : 0;
-        } else {
-          // 如果色值为奇数
-          data[i] = flag ? 0: 255;
-        }
-      } else if (i % 4 == 3) {
-        // 透明度不作处理
-        continue;
-      }
-    }
-
-    context.putImageData(imageData,0,0);
-    result.src = canvas.toDataURL("image/png");
-  };
-};
-
-decodeWatermark(document.getElementById("source"), document.getElementById("result"));
+  decodeWatermark(document.getElementById("source"), document.getElementById("result"));
 </script>
 </body>
 </html>
