@@ -62,6 +62,15 @@
               // 如果包含水印元素，则将水印元素重新加回去，并更新 watermarkLayer 方便下次判断
               watermarkLayer = addWatermark(watermarkContainer);
             });
+          } else if (mutation.type ==="attributes") {
+            // 当前修改的元素是水印元素，由于水印元素在生成之后几乎不会改变，
+            // 因此我们甚至都无需判断是否改变的是style 了
+            // 只要水印元素的任意属性被二次修改了，我们就重置水印
+            if (mutation.target === watermarkLayer) {
+              console.log("水印样式被修改了，重新加回去");
+              watermarkContainer.removeChild(watermarkLayer);
+              watermarkLayer = addWatermark(watermarkContainer);
+            }
           }
         });
       });
@@ -70,7 +79,7 @@
         subtree: true,
         attributes: true,
       });
-      addWatermark(watermarkContainer);
+      // addWatermark(watermarkContainer);
     </script>
   </body>
 </html>
