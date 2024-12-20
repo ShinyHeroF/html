@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 80%; /* 可视区域宽度 */
+      height: 40px; /* 增加高度以便于滚动条显示 */
+      overflow: hidden;
+    }
+
+    .ticks-container {
+      width: 100%;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; /* 确保移动端平滑滚动 */
+      scrollbar-width: none; /* 隐藏滚动条 */
+    }
+
+    .ticks-container::-webkit-scrollbar {
+      display: none; /* 隐藏滚动条 */
+    }
+
+    .ticks {
+      display: flex;
+      justify-content: space-between;
+      width: 160%; /* 扩展宽度以容纳整个范围 */
+      padding-bottom: 20px; /* 为刻度标签留出空间 */
+      scroll-snap-align: start;
+    }
+
+    .ticks span {
+      font-size: 12px;
+      color: #666;
+      flex: 1 1 auto; /* 确保每个刻度标签占据相等的空间 */
+      text-align: center;
+    }
+
+    .pointer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 15px;
+      height: 15px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      z-index: 2;
+      pointer-events: none; /* 确保不会影响滚动 */
+    }
+  </style>
+  <div class="slider-container">
+    <div class="ticks-container" id="ticks-container">
+      <div class="ticks">
+        <span>0</span>
+        <span>15</span>
+        <span>30</span>
+        <span>45</span>
+        <span>60</span>
+        <span>75</span>
+        <span>90</span>
+        <span>105</span>
+        <span>120</span>
+      </div>
+    </div>
+    <div class="pointer"></div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const ticksContainer = document.getElementById('ticks-container');
+      const initialOffset = -30; // 初始偏移量，使30-90范围可见
+
+      // 设置初始滚动位置
+      ticksContainer.scrollLeft = (initialOffset / 120) * ticksContainer.scrollWidth;
+
+      // 监听滚动事件，确保指针始终居中
+      ticksContainer.addEventListener('scroll', function() {
+        const scrollPosition = ticksContainer.scrollLeft;
+        console.log(`Scroll Position: ${scrollPosition}px`);
+      });
+    });
+  </script>
+</html>
