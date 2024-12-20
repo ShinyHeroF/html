@@ -6,8 +6,18 @@
     <title>Document</title>
   </head>
   <body>
-    <p style="height: 100vh">这是文件内容!!!</p>
+    <p style="height: 100vh; position: relative;">
+      这是文件内容!!!<br />
+      这是文件内容!!!<br />
+      这是文件内容!!!<br />
+      这是文件内容!!!<br />
+      这是文件内容!!!<br />
+      这是文件内容!!!<br />
+      这是文件内容!!!<br />
+    </p>
     <script>
+      // 由于 z-index 属性除了 auto之外，只能传入一个整型值，因此其最大值为整型的最大值
+      const maxZIndex = 2;
       const addWatermark = (watermarkContainer) => {
         const rotate = 45;
         const gap = 100;
@@ -44,7 +54,7 @@
         watermarkLayer.style.pointerEvents = "none";
         watermarkLayer.style.backgroundImage = `url(${url})`;
         watermarkLayer.style.backgroundRepeat = "repeat";
-        watermarkLayer.style.zIndex = "9999";
+        watermarkLayer.style.zIndex = maxZIndex;
         watermarkContainer.appendChild(watermarkLayer);
         return watermarkLayer;
       };
@@ -70,6 +80,10 @@
               console.log("水印样式被修改了，重新加回去");
               watermarkContainer.removeChild(watermarkLayer);
               watermarkLayer = addWatermark(watermarkContainer);
+            } else if (mutation.target.style.zIndex >= maxZIndex) {
+              // 如果有元素的 z-index大于等于最大值，我们就将其z-index设置为最大值减一
+              mutation.target.style.zIndex = maxZIndex - 1;
+              console.log("水印被覆盖了，重新覆盖回去！");
             }
           }
         });
