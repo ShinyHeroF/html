@@ -18,7 +18,7 @@
     </p>
     <script>
       const watermarkContainer = document.querySelector("body");
-      watermarkLayer = addWatermark(watermarkContainer);
+      watermarkLayer = addWatermark(watermarkContainer, createWaterMark());
 
       const ob = new MutationObserver((mutations )=>{
       if (mutations.length === 0) return;

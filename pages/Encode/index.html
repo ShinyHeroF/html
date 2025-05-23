@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/resource/font/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJllpynAFyo4R4o.woff2" />
+  <title>Unicode</title>
+</head>
+
+<style>
+  .container {
+    padding-top: 500px;
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  }
+</style>
+
+<body class="container">
+  <div>&amp;#65</div>
+  <div>&#65</div>
+
+  <div id="testText"></div>
+  <!-- <div>&#4e2d</div> -->
+</body>
+
+<script>
+  function unicodeToChar(unicodeStr) {
+    return unicodeStr.replace(/\\u([\dA-Fa-f]{4})/g, function(match, p1) {
+      return String.fromCharCode(parseInt(p1, 16));
+    });
+  }
+
+  function decodeUnicode(str) {
+    return str.replace(/\\u([\dA-Fa-f]{4})/g, (_, hex) => {
+        const codePoint = parseInt(hex, 16);
+        return codePoint <= 0xFFFF ? 
+            String.fromCharCode(codePoint) : 
+            String.fromCodePoint(codePoint);
+    });
+  }
+ 
+  // var unicodeString = "e\u0301"; // 🦢
+  // var unicodeString = "abcd\u202e1234";
+  var unicodeString = "\u202e恰是那台机器脉冲的颤跳";
+  // var unicodeString = "\u70ed\u0488\u7684\u0488\u5b57\u0488\u90fd\u0488\u51fa\u0488\u6c57\u0488\u4e86\u0488";
+  // var unicodeString = `e\u0300\u0301\u0302\u0303\u0304\u0305\u0306\u0307\u0308\u0309\u030A\u030B`;
+
+  var str = decodeUnicode(unicodeString);
+  document.getElementById("testText").innerHTML = str;
+  console.log(str);
+</script>
+</html>

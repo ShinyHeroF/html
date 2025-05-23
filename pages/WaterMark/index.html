@@ -8,15 +8,16 @@
 </head>
 <body>
   <fieldset>
-  <legend>原始截图</legend>
-  <img width="1800" id="source" src="../../resource/img/watermark-test.png" alt="原始截图" />
+  <legend>原始带暗水印截图</legend>
+  <img width="300" id="source" src="" alt="原始带暗水印截图" />
 </fieldset>
 <fieldset>
   <legend>解码暗水印截图</legend>
-  <img width="1800" id="result" src="" alt="解码暗水印" />
+  <img width="300" id="result" src="" alt="解码暗水印截图" />
 </fieldset>
 
 <script>
+  document.getElementById("source").src = encodeWatermark();
   decodeWatermark(document.getElementById("source"), document.getElementById("result"));
 </script>
 </body>

@@ -1,7 +1,10 @@
-// 由于 z-index 属性除了 auto之外，只能传入一个整型值，因此其最大值为整型的最大值
-const maxZIndex = 2;
+/** 由于 z-index 属性除了 auto之外，只能传入一个整型值，因此其最大值为整型的最大值 */
+const maxZIndex = 2**23-1;
 
-function addWatermark(watermarkContainer) {
+/** 创建水印图片
+ * @return 水印url
+ */
+function createWaterMark() {
   const rotate = 45;
   const gap = 100;
   const text = "水印";
@@ -27,21 +30,15 @@ function addWatermark(watermarkContainer) {
   context.fillText(text,0,0);
   // 将canvas转为图片
   const url = canvas.toDataURL("image/png");
-  // 创建水印元素并添加到容器中
-  const watermarkLayer = document.createElement("div");
-  watermarkLayer.style.position = "absolute";
-  watermarkLayer.style.top = "0";
-  watermarkLayer.style.left = "0";
-  watermarkLayer.style.width = "100%";
-  watermarkLayer.style.height="100%";
-  watermarkLayer.style.pointerEvents = "none";
-  watermarkLayer.style.backgroundImage = `url(${url})`;
-  watermarkLayer.style.backgroundRepeat = "repeat";
-  watermarkLayer.style.zIndex = maxZIndex;
-  watermarkContainer.appendChild(watermarkLayer);
-  return watermarkLayer;
-};
-
+  return url;
+}
+/** 将水印转为暗水印 */
+function encodeWatermark(waterMarkUrl = '') {
+  // 水印元素地址
+  const url = waterMarkUrl || createWaterMark();
+  return url;
+}
+/** 解密暗水印 */
 function decodeWatermark(source, result) {
   const canvas = document.createElement("canvas" );
   const context = canvas.getContext("2d");
@@ -75,4 +72,23 @@ function decodeWatermark(source, result) {
     context.putImageData(imageData,0,0);
     result.src = canvas.toDataURL("image/png");
   };
+};
+/** 添加水印到容器中 */
+function addWatermark(watermarkContainer, waterMarkUrl) {
+  const watermarkLayer = document.createElement("div");
+  watermarkLayer.style.position = "absolute";
+  watermarkLayer.style.top = "0";
+  watermarkLayer.style.left = "0";
+  watermarkLayer.style.width = "100%";
+  watermarkLayer.style.height="100%";
+  watermarkLayer.style.pointerEvents = "none";
+  watermarkLayer.style.backgroundImage = `url(${waterMarkUrl})`;
+  watermarkLayer.style.backgroundRepeat = "repeat";
+  watermarkLayer.style.zIndex = maxZIndex;
+  watermarkContainer.appendChild(watermarkLayer);
+  return watermarkLayer;
+};
+/** 填充图片 */
+function fillImage(imgEle, imgUrl) {
+  imgEle.src = imgUrl;
 };
