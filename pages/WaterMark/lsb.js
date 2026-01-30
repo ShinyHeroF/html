@@ -4,6 +4,7 @@ function textToBinary(text) {
 }
 /** 将其嵌入到图像的像素值中 */
 function embedLSBWatermark(imageData, watermarkText) {
+  console.log('embedLSBWatermark ==>', imageData);
   const binaryWatermark = textToBinary(watermarkText);
   let data = imageData.data;
   let index = 0;

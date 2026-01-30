@@ -6,19 +6,51 @@
   <title>Document</title>
   <script src="./waterMark.js"></script>
 </head>
+<style>
+  img {
+    height: 200px;
+  }
+</style>
 <body>
   <fieldset>
-  <legend>原始带暗水印截图</legend>
-  <img width="300" id="source" src="" alt="原始带暗水印截图" />
-</fieldset>
-<fieldset>
-  <legend>解码暗水印截图</legend>
-  <img width="300" id="result" src="" alt="解码暗水印截图" />
-</fieldset>
+    <legend>操作区</legend>
+    <button onclick="drawImg()">画图</button>
+    <button onclick="encode()">加水印</button>
+    <button onclick="decode()">解水印</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>原始图片</legend>
+    <img width="300" id="source" src="" alt="原始图片" />
+  </fieldset>
+
+  <fieldset>
+    <legend>添加了水印的图</legend>
+    <img width="300" id="encodedImg" src="" alt="添加了水印的图" />
+  </fieldset>
+  <fieldset>
+    <legend>解码后的图</legend>
+    <img width="300" id="decodeImg" src="" alt="解码后的图" />
+  </fieldset>
+</body>
 
 <script>
-  document.getElementById("source").src = encodeWatermark();
-  decodeWatermark(document.getElementById("source"), document.getElementById("result"));
+  /** 给 ID 为 source 的 img 标签 画原始图片，如果已经手动指定了，则不做任何处理 */
+  function drawImg() {
+    const img = document.getElementById('source');
+    img.src = createOriginImg();
+  }
+  function encode() {
+    drawWatermark();
+  }
+  
+  function decode() {
+    decodeWatermarkByMixMode(document.getElementById("encodedImg"), document.getElementById("decodeImg"));
+  }
+  // document.getElementById('watermarkImg').src = createWaterMark();
+  // document.getElementById("source").src = encodeWatermark();
+  // decodeWatermark(document.getElementById("source"), document.getElementById("result"));
+  // decodeWatermarkByMixMode(document.getElementById("source"), document.getElementById("result"));
 </script>
-</body>
+
 </html>

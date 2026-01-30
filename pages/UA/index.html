@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="ua-parser.js"></script>
+  </head>
+  <script>
+    // const uap = new UAParser();
+    // console.log(uap.getResult());
+  </script>
+
+  <script>
+    async function getBrowserVersionAPI() {
+      if (navigator.userAgentData) {
+        const userAgentData = await navigator.userAgentData.getHighEntropyValues(['brands']);
+        return userAgentData;
+        // const chromeData = brands.find(b => b.brand === 'Google Chrome');
+        // return chromeData ? chromeData.version : "Unsupported";
+      }
+      return "Fallback to UserAgent"; // 旧浏览器回退
+    }
+    getBrowserVersionAPI().then(console.log); // 输出示例: "118"
+  </script>
+</html>

@@ -10,7 +10,46 @@
     <canvas id="watermarkedCanvas" style="display:none;"></canvas>
     <button onclick="embed()">Embed Watermark</button>
     <button onclick="extract()">Extract Watermark</button>
+    <input type="file" accept="image/*" />
   </body>
+
+  <script>
+    /** 工具方法 */
+    function returnFileSize(number) {
+      if (number < 1024) {
+        return `${number} bytes`;
+      } else if (number >= 1024 && number < 1048576) {
+        return `${(number / 1024).toFixed(1)} KB`;
+      } else if (number >= 1048576) {
+        return `${(number / 1048576).toFixed(1)} MB`;
+      }
+    }
+  </script>
+
+  <script>
+    /** 文件上传 */
+    const input = document.querySelector("input");
+    input.addEventListener("change", updateImageDisplay);
+
+    function updateImageDisplay() {
+      const curFiles = input.files;
+      if (curFiles.length) {
+        const img = new Image();
+        img.src = URL.createObjectURL(curFiles[0]);
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+          const extractedWatermark = extractLSBWatermark(imageData, watermarkText.length);
+          alert('Extracted Watermark: ' + extractedWatermark);
+        }
+      }
+    }
+  </script>
 
   <script>
     const watermarkText = '1234567890ABCDEFGHIJKLMNOPQERSTUVWXYZ!@#$%^&*()_+-='
