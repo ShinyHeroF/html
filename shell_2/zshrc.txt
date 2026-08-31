@@ -1,0 +1,56 @@
+autoload -U colors && colors
+export PROMPT="[%{$fg[red]%}%T%{$reset_color%}] %{$fg[green]%}%1|%~ %{$reset_color%}$ "
+mr() {
+  local url=$(git remote get-url origin)
+
+  # on OSes other than Mac OS X replace `open -a "Google Chrome` with your browsers executable, e.g. google-chrome on Ubuntu
+  open -a "Google Chrome" "${url%.git}/merge_requests/new?merge_request[source_branch]=$(git symbolic-ref -q --short HEAD)"
+}
+
+function v {
+ if [[ $# = 0 ]]
+ then
+ open -a "Visual Studio Code"
+ else
+ local argPath="$1"
+ [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
+ open -a "Visual Studio Code" "$argPath"
+ fi
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# LSCOLORS
+export LSCOLORS="exfxcxdxbxexexabagacad"
+alias ls='ls -G'
+
+# Dev amis
+export MYSQL_URL=mysql://root:gxf730141@localhost:3306/elt_amis
+
+# pnpm
+export PNPM_HOME="/Users/shinyhero/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# pyhton
+export PATH="/usr/bin/python3:$PATH"
+alias python="/usr/bin/python3"
+#python end
+
+# proxy start
+proxy_ip="21.126.101.1"
+proxy_port="8002"
+username="gexiaofeng"
+password="B1418%40corner"
+#export http_proxy=http://$username:$password@$proxy_ip:$proxy_port
+#export http_proxy=http://$proxy_ip:$proxy_port
+#export https_proxy=https://$proxy_ip:$proxy_port
+# proxy end
+
+##
+source ~/shell/init.sh
